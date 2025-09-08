@@ -7,7 +7,7 @@ export default function App() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
   useEffect(() => {
-    fetch("/config.json")
+    fetch(import.meta.env.BASE_URL + "config.json")
       .then((res) => res.json())
       .then((data) => {
         setMenuItems(data.menuItems);
