@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import { Menu } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 
 export default function App() {
   const [menuItems, setMenuItems] = useState([]);
@@ -28,13 +26,12 @@ export default function App() {
         } flex flex-col`}
       >
         <div className="flex items-center justify-between p-4 border-b">
-          <Button
-            variant="ghost"
-            size="icon"
+          <button
+            className="p-2 rounded hover:bg-gray-200"
             onClick={() => setSidebarOpen(!sidebarOpen)}
           >
             <Menu />
-          </Button>
+          </button>
           {sidebarOpen && <span className="font-bold">Menu</span>}
         </div>
         <nav className="flex-1 overflow-y-auto">
@@ -54,19 +51,19 @@ export default function App() {
 
       {/* Content */}
       <div className="flex-1 p-2">
-        <Card className="h-full w-full">
+        <div className="bg-white rounded-2xl shadow h-full w-full overflow-hidden">
           {activeUrl ? (
             <iframe
               src={activeUrl}
               title="Content Frame"
-              className="w-full h-full rounded-2xl"
+              className="w-full h-full"
             />
           ) : (
             <div className="flex items-center justify-center h-full text-gray-500">
               Select an option from the menu
             </div>
           )}
-        </Card>
+        </div>
       </div>
     </div>
   );
