@@ -1,0 +1,24 @@
+{
+  "menuItems": [
+    {
+      "label": "Deploy Packages",
+      "url": "https://swpf6hb.onk2.com/Runtime/Runtime/Form/All+Deploy+Requests/"
+    },
+    {
+      "label": "Generate Customer Report",
+      "url": "https://swpf6hb.onk2.com/Runtime/Runtime/Form/Support+Generate+Report/"
+    },
+    {
+      "label": "Jira Schedules",
+      "url": "https://swpf6hb.onk2.com/Runtime/Runtime/Form/Jira+Schedule/"
+    },
+    {
+      "label": "Ticket Snapshot",
+      "url": "https://swpf6hb.onk2.com/Runtime/Runtime/Form/Jira+Snapshot/"
+    },
+    {
+      "label": "3rd Party Tickets",
+      "url": "https://swpf6hb.onk2.com/Runtime/Runtime/Form/List+All+3rd+Party+Tickets/"
+    }
+  ]
+}
