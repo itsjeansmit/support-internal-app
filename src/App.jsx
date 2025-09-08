@@ -16,7 +16,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="flex h-screen overflow-hidden">
+    <div className="flex h-screen w-screen overflow-hidden">
       {/* Sidebar */}
       <div
         className={`bg-white shadow-md transition-all duration-300 flex flex-col ${
@@ -49,12 +49,18 @@ export default function App() {
       </div>
 
       {/* Content */}
-      <div className="flex-1 bg-gray-100 p-2">
-        <iframe
-          src={activeUrl}
-          title="Content Frame"
-          className="w-full h-full rounded-xl border-0"
-        />
+      <div className="flex-1 bg-gray-100">
+        {activeUrl ? (
+          <iframe
+            src={activeUrl}
+            title="Content Frame"
+            className="w-full h-full border-0"
+          />
+        ) : (
+          <div className="flex items-center justify-center h-full text-gray-500">
+            Select an option from the menu
+          </div>
+        )}
       </div>
     </div>
   );
