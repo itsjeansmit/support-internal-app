@@ -11,29 +11,28 @@ export default function App() {
       .then((res) => res.json())
       .then((data) => {
         setMenuItems(data.menuItems);
-        if (data.menuItems.length > 0) {
-          setActiveUrl(data.menuItems[0].url);
-        }
+        if (data.menuItems.length > 0) setActiveUrl(data.menuItems[0].url);
       });
   }, []);
 
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div className="flex h-screen overflow-hidden">
       {/* Sidebar */}
       <div
-        className={`bg-white shadow-md transition-all duration-300 ${
+        className={`bg-white shadow-md transition-all duration-300 flex flex-col ${
           sidebarOpen ? "w-64" : "w-14"
-        } flex flex-col`}
+        }`}
       >
         <div className="flex items-center justify-between p-4 border-b">
           <button
             className="p-2 rounded hover:bg-gray-200"
             onClick={() => setSidebarOpen(!sidebarOpen)}
           >
-            <Menu />
+            <Menu size={20} />
           </button>
           {sidebarOpen && <span className="font-bold">Menu</span>}
         </div>
+
         <nav className="flex-1 overflow-y-auto">
           {menuItems.map((item) => (
             <button
@@ -50,20 +49,12 @@ export default function App() {
       </div>
 
       {/* Content */}
-      <div className="flex-1 p-2">
-        <div className="bg-white rounded-2xl shadow h-full w-full overflow-hidden">
-          {activeUrl ? (
-            <iframe
-              src={activeUrl}
-              title="Content Frame"
-              className="w-full h-full"
-            />
-          ) : (
-            <div className="flex items-center justify-center h-full text-gray-500">
-              Select an option from the menu
-            </div>
-          )}
-        </div>
+      <div className="flex-1 bg-gray-100 p-2">
+        <iframe
+          src={activeUrl}
+          title="Content Frame"
+          className="w-full h-full rounded-xl border-0"
+        />
       </div>
     </div>
   );
